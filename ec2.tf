@@ -2,6 +2,9 @@
 resource "aws_key_pair" "my_key" {
   key_name   = "pub-key"
   public_key = file("~/.ssh/id_ed25519.pub")
+  tags = {
+    Environment = var.env
+  }
 }
 
 # vpc & security group
