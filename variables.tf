@@ -11,6 +11,6 @@ variable "ec2_ami" {
   type    = string
 }
 variable "env" {
-  default = "prd"
+  default = "dev"
   type    = string
 }
