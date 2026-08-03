@@ -10,7 +10,7 @@ resource "aws_key_pair" "my_key" {
 # vpc & security group
 resource "aws_default_vpc" "default" {} 
 resource "aws_security_group" "allow_ssh" {
-  name        = "allow_ssh"
+  name        = "${var.env}-allow-ssh"
   description = "Allow SSH inbound traffic"
   vpc_id      = aws_default_vpc.default.id
 
