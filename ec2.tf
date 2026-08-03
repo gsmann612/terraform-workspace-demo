@@ -2,15 +2,12 @@
 resource "aws_key_pair" "my_key" {
   key_name   = "pub-key"
   public_key = file("~/.ssh/id_ed25519.pub")
-  tags = {
-    Environment = var.env
-  }
 }
 
 # vpc & security group
 resource "aws_default_vpc" "default" {} 
 resource "aws_security_group" "allow_ssh" {
-  name        = "${var.env}-allow-ssh"
+  name        = "allow_ssh"
   description = "Allow SSH inbound traffic"
   vpc_id      = aws_default_vpc.default.id
 
